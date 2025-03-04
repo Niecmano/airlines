@@ -1,0 +1,76 @@
+body{
+    margin:0;
+}
+
+.gore{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 5vh;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.letovi {
+    font-family: Arial, sans-serif;
+    background: url(https://cdn.flightsim.to/images/24/jat-airways-jat-pmdg-737-yu-and-retro-1989-livery-43xVT.jpg?width=1400);
+    background-size: cover;
+    color: #333;
+    text-align: center;
+    padding: 20px;
+    flex-grow: 1;
+}
+
+h1 {
+    color: #0a1348;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    max-width: 400px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.1em;
+}
+
+li:last-child {
+    border-bottom: none;
+}
+
+span {
+    font-weight: bold;
+} 
+
+.izbor{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 25px;
+    margin: 10vh;
+}
+
+.infizb{
+    color: #ffffff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+}
+
+#tfod, #tfdo{
+    font-size: 22px;
+    height: 30px;
+}
