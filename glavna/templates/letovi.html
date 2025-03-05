@@ -1,58 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JAT Airways</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'style.css' %}" />
-  </head>
-  <body>
-    <div class="wrapper">
-      <div class="gore">
-        <div class="logoi">
-          <img
-            src="https://www.serbianlogo.com/thumbnails/jat.gif"
-            height="80vh"
-          />
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Jat_Airways_logo.svg/1200px-Jat_Airways_logo.svg.png"
-            height="80vh"
-          />
-        </div>
-        <h1>Jugoslovenski aviotransport</h1>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JAT Airways</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'style.css' %}" />
+</head>
+
+<body>
+  <div class="wrapper">
+
+    <div class="gore">
+      <div class="logoi">
+        <img src="https://www.serbianlogo.com/thumbnails/jat.gif" height="80vh" />
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Jat_Airways_logo.svg/1200px-Jat_Airways_logo.svg.png"
+          height="80vh" />
       </div>
-      <div class="letovi">
-
-        <div class="izbor">
-            <div>
-                <label for="tfod" class="infizb">Letimo od:</label>
-                <input list="options" id="tfod" name="opcija" placeholder="Počni da kucaš...">
-            </div>
-
-            <div>
-                <label for="tfdo" class="infizb">Destinacija:</label>
-                <input list="options" id="tfdo" name="opcija" placeholder="Počni da kucaš...">
-            </div>
-
-            <button>Pronadji letove</button>
-        </div>
-
-        <datalist id="options">
-            {% for g in gradovi %}
-          <option value="{{g.naziv}}">
-            {% endfor %}
-        </datalist>
-
-        <ul>
-          {% for l in letovi %}
-          <li>
-            <span>{{l.od.naziv}}-{{l.do.naziv}}</span>
-            <span>{{l.vreme|date:"d.m.Y. H:i"}}</span>
-          </li>
-          {% endfor %}
-        </ul>
-      </div>
+      <h1>Jugoslovenski aviotransport</h1>
     </div>
-  </body>
+
+    <div class="letovi">
+      <form action="{% url 'rezpretrage' %}" method="get">
+        <div class="izbor">
+          <div>
+            <label for="tfod" class="infizb">Letimo od:</label>
+            <input list="options" id="tfod" name="od" placeholder="Počni da kucaš...">
+          </div>
+
+          <div>
+            <label for="tfdo" class="infizb">Destinacija:</label>
+            <input list="options" id="tfdo" name="do" placeholder="Počni da kucaš...">
+          </div>
+
+          <datalist id="options">
+            {% for g in gradovi %}
+            <option value="{{g.naziv}}">
+              {% endfor %}
+          </datalist>
+
+          <button type="submit">Pretrazi letove</button>
+      </form>
+    </div>
+
+    <ul>
+      {% for l in letovi %}
+      <li>
+        <span>{{l.od.naziv}}-{{l.do.naziv}}</span>
+        <span>{{l.vreme|date:"d.m.Y. H:i"}}</span>
+      </li>
+      {% endfor %}
+    </ul>
+
+  </div>
+  </div> <!-- kraj wrappera-->
+</body>
+
 </html>
