@@ -48,8 +48,12 @@
     <ul>
       {% for l in letovi %}
       <li>
-        <span>{{l.od.naziv}}-{{l.do.naziv}}</span>
+        <span>{{l.od.naziv}} - {{l.do.naziv}}</span>
         <span>{{l.vreme|date:"d.m.Y. H:i"}}</span>
+        <form action="{% url 'kupovna' %}" method="get">
+          <input type="hidden" name="id" value="{{ l.id }}">
+          <button type="submit">Kupi karte</button>
+      </form>
       </li>
       {% endfor %}
     </ul>
