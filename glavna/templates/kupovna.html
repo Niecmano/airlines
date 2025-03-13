@@ -20,25 +20,38 @@
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Jat_Airways_logo.svg/1200px-Jat_Airways_logo.svg.png"
           height="80vh" />
       </div>
-      <h1>Jugoslovenski aviotransport</h1>
+      <h1 style="color: darkblue">Jugoslovenski aerotransport</h1>
     </div>
 
     <div class="letovi">
-        <p class="flug"> LET: {{let.od}}-{{let.do}}</p>
-        <p class="flug"> DATUM: {{let.vreme| date:"d.m.Y."}}</p>
-        <p class="flug"> VREME: {{let.vreme| date:"H:i"}}</p>
-        <div class="paketi">
-          {% for pk in ostalo %}
-          <div class="paket">
-            <p>{{pk.tip_karte}}</p>
-            <p class="pspecs">Prtljag: {{pk.tip_karte.prtljag}}</p>
-            <p class="pspecs">Dodatne usluge: {{pk.tip_karte.dodusl}}</p>
-            <p>{{pk.preostalo}} karata preostalo</p>
-            <p>Cena: {{pk.cena}} din</p>
-          </div>
 
-          {% endfor %}
+      <div class="upbuy">
+        <div>
+          <p class="flug"> Let: {{let.od}}-{{let.do}}</p>
+          <p> Datum: {{let.vreme| date:"d.m.Y."}}</p>
+          <p> Vreme: {{let.vreme| date:"H:i"}}</p>
         </div>
+        <div class="kauform">
+          <form action="" method="post">
+          {% csrf_token %}
+          {{forma.as_p}}
+          <button type="submit">Kupi karte</button>
+          </form>
+        </div>
+
+      </div>
+
+      <div class="paketi">
+        {% for pk in ostalo %}
+        <div class="paket">
+          <p>{{pk.tip_karte}}</p>
+          <p class="pspecs">Prtljag: {{pk.tip_karte.prtljag}}</p>
+          <p class="pspecs">Dodatne usluge: {{pk.tip_karte.dodusl}}</p>
+          <p>{{pk.preostalo}} karata preostalo</p>
+          <p>Cena: {{pk.cena}} din</p>
+        </div>
+        {% endfor %}
+      </div>
     </div>
 
   </div> <!-- kraj wrappera-->

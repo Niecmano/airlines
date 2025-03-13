@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kupljene karte</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="gore">
+
+            <div>
+                <img src="https://www.serbianlogo.com/thumbnails/jat.gif" height="80vh" />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Jat_Airways_logo.svg/1200px-Jat_Airways_logo.svg.png"
+                    height="80vh" />
+            </div>
+
+            <div class="nutzer">
+                {% if request.user.username %}
+                <p>Korisnik: {{ request.user.username }}</p>
+
+                <form action="{% url 'logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit"> Logout </button>
+                </form>
+
+                <form action="{% url 'home' %}" method="post" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit"> Pocetna </button>
+                </form>
+                {% endif %}
+            </div>
+
+        </div>
+
+        <div class="kaufs" style="min-height: 50vh;">
+            <ul>
+                <h2>Kupljene karte</h2>
+                <h2>Korisnik: {{ request.user.username }}</h2>
+                {% for kk in kupljene %}
+                <li>
+                    <span>{{ kk.tip_karte }}</span>
+                    <span>{{ kk.let }}</span>
+                    <span>{{ kk.cena }} din</span>
+                    {% comment %} <form action="{% url 'export' kk.id %}" method="get" style="display:inline;">
+                        <button type="submit">Preuzmi kartu</button>
+                    </form> {% endcomment %}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

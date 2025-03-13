@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Grad(models.Model):
     naziv = models.CharField(max_length=40)
@@ -26,5 +27,11 @@ class PreostaloKarata(models.Model):
     let = models.ForeignKey(Let,on_delete=models.RESTRICT)
     tip_karte = models.ForeignKey(TipKarte, on_delete=models.RESTRICT)
     preostalo = models.PositiveIntegerField()
+    cena = models.DecimalField(max_digits=7, decimal_places=2, default=5000.00)
+
+class KupljenaKarta(models.Model):
+    let = models.ForeignKey(Let,on_delete=models.RESTRICT)
+    tip_karte = models.ForeignKey(TipKarte, on_delete=models.RESTRICT)
+    kupac = models.ForeignKey(User, on_delete=models.RESTRICT)
     cena = models.DecimalField(max_digits=7, decimal_places=2, default=5000.00)
     

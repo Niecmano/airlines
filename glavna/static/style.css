@@ -25,38 +25,6 @@ body{
     flex-grow: 1;
 }
 
-h1 {
-    color: #0a1348;
-    font-size: 2em;
-    margin-bottom: 20px;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-    max-width: 50vw;
-    margin: 0 auto;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-li {
-    padding: 20px;
-    border-bottom: 1px solid #ddd;
-    display: flex;
-    justify-content: space-between;
-    font-size: 1.3em;
-}
-
-li:last-child {
-    border-bottom: none;
-}
-
-span {
-    font-weight: bold;
-} 
-
 .izbor{
     display: flex;
     flex-direction: row;
@@ -73,4 +41,64 @@ span {
 #tfod, #tfdo{
     font-size: 22px;
     height: 30px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    max-width: 50vw;
+    margin: 0 auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+li {
+    padding: 20px;
+    border-bottom: 2px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.3em;
+}
+
+li:last-child {
+    border-bottom: none;
+}
+
+span {
+    font-weight: bold;
+} 
+
+button {
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: darkblue;
+}
+
+.nutzer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 2vw;
+    color: #131f5f;
+    font: 1.5em Montserrat;
+}
+
+.kaufs{
+    background: url(https://static.slobodnadalmacija.hr/Portals/3/Images/2019/07/07/1562339111jat009.jpg);
+    background-size: cover;
+    color: #333;
+    text-align: center;
+    padding: 20px;
+    flex-grow: 1;
 }

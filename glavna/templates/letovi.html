@@ -13,13 +13,33 @@
   <div class="wrapper">
 
     <div class="gore">
-      <div class="logoi">
+
+      <div>
         <img src="https://www.serbianlogo.com/thumbnails/jat.gif" height="80vh" />
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Jat_Airways_logo.svg/1200px-Jat_Airways_logo.svg.png"
           height="80vh" />
       </div>
-      <h1>Jugoslovenski aviotransport</h1>
+
+      <div class="nutzer">
+        {% if request.user.username %}   
+        <p>Korisnik: {{ request.user.username }}</p>
+  
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit"> Logout </button>
+        </form>
+  
+        <form action="{% url 'kupljene' %}" method="post" style="display: inline;">
+            {% csrf_token %}
+            <button type="submit"> Kupljene karte </button>
+        </form>
+        {% endif %}
+        {% if not request.user.username %} 
+        <p style="color: darkblue; font-weight:bold;">Jugoslovenski aerotransport</p>
+        {% endif %}
+      </div>
+     
     </div>
 
     <div class="letovi">
@@ -27,12 +47,12 @@
         <div class="izbor">
           <div>
             <label for="tfod" class="infizb">Letimo od:</label>
-            <input list="options" id="tfod" name="od" placeholder="Počni da kucaš...">
+            <input list="options" id="tfod" name="od" placeholder="Unesite grad...">
           </div>
 
           <div>
             <label for="tfdo" class="infizb">Destinacija:</label>
-            <input list="options" id="tfdo" name="do" placeholder="Počni da kucaš...">
+            <input list="options" id="tfdo" name="do" placeholder="Unesite grad...">
           </div>
 
           <datalist id="options">

@@ -1,9 +1,15 @@
-
-.flug{
-    font-size: 2em; 
+.upbuy{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 1.5em; 
     color: #ffffff; 
     text-shadow: 2px 2px 5px rgb(0, 0, 0);
     text-align: left;
+}
+
+.flug{
+    font-size: 1.8em; 
 }
 
 .paketi{
@@ -14,6 +20,7 @@
     flex-direction: row;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    margin-top: 3vh;
 }
 
 .pspecs{
@@ -23,8 +30,46 @@
     border-radius: 5px;
     padding: 5px;
 }
+
 .paket{
     background-color: rgb(0, 4, 49);
     border-radius: 10px;
     padding: 10px;
+}
+
+#id_tip_karte, #id_broj_karata{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 20px;
+    color: #555;
+    background-color: #fff;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns%3D%22http://www.w3.org/2000/svg%22 viewBox%3D%220 0 4 5%22%3E%3Cpath fill%3D%22%23ccc%22 d%3D%22M2 0L0 2h4L2 0zM0 3l2 2 2-2H0z%22/%3E%3C/svg%3E');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px 12px; 
+}
+
+#id_tip_karte{
+    width: 15vw;
+}
+
+#id_broj_karata{
+    width: 5vw;
+}
+
+#id_tip_karte:focus, #id_broj_karata:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 3px rgba(0, 123, 255, 0.7);
+}
+
+.kauform{
+    background-color: rgba(123, 159, 255, 0.5);
+    border: 2px solid rgb(29, 29, 195);
+    border-radius: 15px;
+    padding: 15px;
+    margin-right: 10vw;
+    margin-top: 3vh; 
+    font-size: 1.2em;
 }
